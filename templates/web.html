@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<title>Credit</title>
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1">LendingClub</span>
+		</nav>
+		<div class="container">
+			<br>
+			<form action = "{{url_for('predict')}}" method ="POST" >
+				<fieldset>
+				<legend>Credit Information</legend><br>
+				  <div class="card card-body" >
+					  <div class="form-group  row">
+						<div class="col-sm-3">
+							<label for="age">credit.policy</label>
+							<select class="form-control" id="credit.policy"  name="credit.policy" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">0</option>
+							  <option value = "1">1</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<label for="sex">purpose</label>
+							<select class="form-control" id="purpose"  name="purpose" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">credit_card</option>
+							  <option value = "1">debt_consolidation</option>
+							  <option value = "2">educational</option>
+							  <option value = "3">home_improvement</option>
+							  <option value = "4">major_purchase</option>
+							  <option value = "5">small_business</option>
+                              <option value = "6">all_other</option>
+                            </select>
+					    </div>
+                        <div class="col-sm-3">
+							<label for="age">int.rate</label>
+							<input type="text" class="form-control" id="int.rate" name="int.rate" required>
+						</div>
+                        <div class="col-sm-3">
+							<label for="age">installment</label>
+							<input type="text" class="form-control" id="installment" name="installment" required>
+						</div>
+					  </div>
+					  <br>
+					  <div class="form-group  row">
+						  <div class="col-sm-3">
+							<label for="age">log.annual.inc</label>
+							<input type="text" class="form-control" id="log.annual.inc" name="log.annual.inc" required>
+						  </div>
+						  <div class="col-sm">
+							<label for="trestbps">dti</label>
+							<input type="text" class="form-control" id="dti" name="dti"  required>
+						  </div>
+						  <div class="col-sm">
+							<label for="chol">fico</label>
+							<input type="text" class="form-control" id="fico" name="fico" required>
+						  </div>
+						  <div class="col-sm">
+							<label for="chol">days.with.cr.line</label>
+							<input type="text" class="form-control" id="days.with.cr.line" name="days.with.cr.line" required>
+						  </div>
+					  </div>
+					  <br>
+					  <div class="form-group row">
+                          <div class="col-sm">
+							<label for="chol">revol.bal</label>
+							<input type="text" class="form-control" id="revol.bal" name="revol.bal" required>
+						  </div>
+                          <div class="col-sm">
+							<label for="chol">revol.util</label>
+							<input type="text" class="form-control" id="revol.util" name="revol.util" required>
+						  </div>
+                          <div class="col-sm">
+							<label for="chol">inq.last.6mths</label>
+							<input type="number" class="form-control" id="inq.last.6mths" name="inq.last.6mths" required>
+						  </div>
+                          <div class="col-sm">
+							<label for="chol">delinq.2yrs</label>
+							<input type="number" class="form-control" id="delinq.2yrs" name="delinq.2yrs" required>
+						  </div>
+                          <div class="col-sm">
+							<label for="chol">pub.rec</label>
+							<input type="number" class="form-control" id="pub.rec" name="pub.rec" required>
+						  </div>
+				      </div>
+                      <br>
+					  <div class="form-group">
+						<input class="btn btn-primary" type="submit" value="Result">
+					  </div>
+					  <div id ="result">
+							<strong style="color:red">{{result}}</strong>
+					  </div>
+                   </div>
+			 </fieldset>
+			</form>
+		</div>
+	</body>
+</html>
