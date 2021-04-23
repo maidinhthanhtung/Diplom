@@ -18,7 +18,7 @@ from sklearn import metrics
 import pickle
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-df = pd.read_csv("C:/Users/Admin/PycharmProjects/hocAI/venv/loans.csv")
+df = pd.read_csv("loans.csv")
 df = pd.get_dummies(df, columns=["purpose"], drop_first=True)
 
 X = df.loc[:, df.columns != "not.fully.paid"].values
